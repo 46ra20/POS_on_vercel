@@ -35,8 +35,8 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Application definition
 
-    # "whitenoise.runserver_nostatic",
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,10 +53,10 @@ INSTALLED_APPS = [
     'Dashboard',
 ]
 
-    # "whitenoise.middleware.WhiteNoiseMiddleware",
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
