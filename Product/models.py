@@ -37,4 +37,4 @@ class ProductModel(models.Model):
     added_by = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return f'{self.product_name} by {self.added_by.first_name} {self.added_by.first_name}'
+        return f'{self.product_name} by {self.added_by.first_name} {self.added_by.last_name}'

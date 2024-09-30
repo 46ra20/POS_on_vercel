@@ -59,6 +59,6 @@ class LogoutView(APIView):
         lu=logout(request=request)
         print(lu)
         if not lu:
-            return Response({'message':"Logout successfully"})
-        return Response({'message':"Something wrong please try agin"})
+            return Response({'message':"Logout successfully","type":"success"})
+        return Response({'message':"Something wrong please try agin","type":"danger"})
         

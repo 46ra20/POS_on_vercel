@@ -32,7 +32,7 @@ class ProductView(ViewSet):
     def create(self,request,userId):
         serializer = ProductSerializer(data = request.data,required=False)
         print(serializer.is_valid())
-        print(serializer.data,request.data)
+        # print(serializer.data,request.data)
         print(serializer.errors)
         if serializer.is_valid():
             serializer.save()
