@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import ProductModel,CategoryModel,BrandModel,UnitModel
+from .models import ProductModel,CategoryModel,BrandModel,UnitModel,PurchaseModel
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -25,3 +25,40 @@ class ProductSearchByNameSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductModel
         fields=['id','product_name','product_code','quantity','seals_price']
+
+
+class PurchaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=PurchaseModel
+        fields='__all__'
+    
+    def save(self,*args, **kwargs):
+        instance = super().save(*args, **kwargs)
+        print(instance,instance.quantity,instance.purchase_price,instance.product)
+
+        product = ProductModel.objects.get(pk=instance.product.id)
+        product.quantity+=instance.quantity
+        product.seals_price=instance.sales_price
+        product.purchase_price=instance.purchase_price
+        product.save()
+
+class PurchaseSerializerForView(serializers.ModelSerializer):
+    product_name = serializers.CharField(source='product.product_name')
+
+    class Meta:
+        model = PurchaseModel
+        fields = ['product_name','company_name','quantity']
+
+
+class StockSerializer(serializers.ModelSerializer):
+    product_name = serializers.CharField(source='product.product_name')
+    current_price = serializers.CharField(source='product.seals_price')
+    product_quantity = serializers.CharField(source='product.quantity')
+
+    print(current_price,product_quantity)
+    class Meta:
+        model = PurchaseModel
+        fields = ['product_name','company_name','date_time','product_quantity','current_price','purchase_price','sales_price']
+
+
+        

@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .serializer import ProductSerializer,CategorySerializer,BrandSerializer,ProductSearchByNameSerializer,UnitSerializer
-from .models import ProductModel,CategoryModel,BrandModel,UnitModel
+from .serializer import ProductSerializer,CategorySerializer,BrandSerializer,ProductSearchByNameSerializer,UnitSerializer,PurchaseSerializer,PurchaseSerializerForView,StockSerializer
+from .models import ProductModel,CategoryModel,BrandModel,UnitModel,PurchaseModel
 
 from rest_framework.views import APIView,Response
 from rest_framework.viewsets import ViewSet,ModelViewSet
@@ -62,3 +62,24 @@ class ProductSearchByName(ViewSet):
             query = ProductModel.objects.filter(product_name__contains=key)|ProductModel.objects.filter(product_code__contains=key)
             serializer = ProductSearchByNameSerializer(query,many=True)
             return Response(serializer.data)
+        
+
+class PurchaseView(ViewSet):
+    def create(self,request):
+        serializer = PurchaseSerializer(data=request.data)
+
+        if(serializer.is_valid()):
+            serializer.save()
+            return Response({'message':'Product successfully purchased','data':serializer.data})
+        return Response(serializer.errors)
+    
+    def list(self,request):
+        query = PurchaseModel.objects.all()
+        serializer = PurchaseSerializerForView(query,many=True)
+        return Response(serializer.data)
+    
+class StockView(ViewSet):
+    def list(self,request):
+        query = PurchaseModel.objects.all()
+        serializer = StockSerializer(query,many=True)
+        return Response(serializer.data)
