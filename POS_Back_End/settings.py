@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'OwnerAndBankAccount',
     'SalesProduct',
     'Dashboard',
+    'ExpansesAndPayments',
+    'Promotional'
 ]
 
 MIDDLEWARE = [

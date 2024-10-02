@@ -46,6 +46,10 @@ class PurchaseModel(models.Model):
     quantity = models.IntegerField(default=0)
     purchase_price = models.DecimalField(max_digits=12, decimal_places=2,default=0)
     sales_price = models.DecimalField(max_digits=12, decimal_places=2,default=0)
+    total_price = models.DecimalField(max_digits=12, decimal_places=2,default=0)
+    cash = models.DecimalField(max_digits=12, decimal_places=2,default=0)
+    outstanding = models.DecimalField(max_digits=12, decimal_places=2,default=0)
+
     date_time = models.DateField(auto_now_add=True)
 
     purchase_by = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,default='')

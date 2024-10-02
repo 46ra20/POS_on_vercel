@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import ProductModel,CategoryModel,BrandModel,UnitModel,PurchaseModel
+from ExpansesAndPayments.models import PaymentModel
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,6 +42,7 @@ class PurchaseSerializer(serializers.ModelSerializer):
         product.seals_price=instance.sales_price
         product.purchase_price=instance.purchase_price
         product.save()
+        PaymentModel.objects.create(purchase = instance,company_name=instance.company_name,total_price=instance.total_price,cash=instance.cash,outstanding=instance.outstanding)
 
 class PurchaseSerializerForView(serializers.ModelSerializer):
     product_name = serializers.CharField(source='product.product_name')
