@@ -34,7 +34,7 @@ class LoginView(APIView):
             auth = authenticate(request=request,username=username,password=password)
             if(auth):
                 user = login(request=request,user=auth)
-                return Response({'message':'Login successfully','type':"success",'user':user})
+                return Response({'message':'Login successfully','type':"success",'user':auth.id})
 
             elif User.objects.filter(username=username):
                 return Response({'password':"Please enter correct password",'type':"warning"})
