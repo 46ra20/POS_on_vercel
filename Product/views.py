@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 from .serializer import ProductSerializer,CategorySerializer,BrandSerializer,ProductSearchByNameSerializer,UnitSerializer,PurchaseSerializer,PurchaseSerializerForView,StockSerializer
 from .models import ProductModel,CategoryModel,BrandModel,UnitModel,PurchaseModel
 
@@ -59,7 +60,7 @@ class ProductSearchByName(ViewSet):
     def list(self,request,key):
         print(key)
         if key:
-            query = ProductModel.objects.filter(product_name__contains=key)|ProductModel.objects.filter(product_code__contains=key)
+            query = ProductModel.objects.filter((Q(product_name__icontains=key)|Q(product_code__icontains=key))&Q(quantity__gt=0))
             serializer = ProductSearchByNameSerializer(query,many=True)
             return Response(serializer.data)
         
