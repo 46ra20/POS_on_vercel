@@ -33,8 +33,8 @@ class ProductModel(models.Model):
     date = models.DateField(auto_now_add=True)
 
     category = models.ManyToManyField(CategoryModel)
-    brand = models.ForeignKey(BrandModel,on_delete=models.CASCADE)
-    added_by = models.ForeignKey(User,on_delete=models.CASCADE)
+    brand = models.ForeignKey(BrandModel,on_delete=models.CASCADE,default='')
+    added_by = models.ForeignKey(User,on_delete=models.CASCADE,default='')
 
     def __str__(self) -> str:
         return f'{self.product_name} by {self.added_by.first_name} {self.added_by.last_name}'
