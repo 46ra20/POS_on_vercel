@@ -34,6 +34,7 @@ class LoginView(APIView):
             auth = authenticate(request=request,username=username,password=password)
             if(auth):
                 user = login(request=request,user=auth)
+                print(auth.id)
                 return Response({'message':'Login successfully','type':"success",'user':auth.id})
 
             elif User.objects.filter(username=username):
