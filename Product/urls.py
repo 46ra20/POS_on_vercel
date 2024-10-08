@@ -7,7 +7,7 @@ router.register(r'product_category',CategoryView)
 router.register(r'product_brand',BrandView)
 router.register(r'product_unit',UnitView)
 urlpatterns = [
-    path('get_all/',ProductView.as_view({'get':'list'})),
+    path('get_all/<key>/',ProductView.as_view({'get':'list'})),
     path('add_product/<userId>/',ProductView.as_view({'post':'create'})),
     path('update_product/<id>/',ProductView.as_view({'update':'patch'})),
     path('delete_product/<id>/',ProductView.as_view({'delete':'destroy'})),
