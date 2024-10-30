@@ -1,24 +1,21 @@
-Here’s a comprehensive **README.md** file for your POS system project:
-
-```markdown
 # POS System
 
 This POS (Point of Sale) System is designed to streamline operations for shops and marketplaces. It includes features for managing sales, purchases, inventory, expenses, payments, and promotions, all integrated into an easy-to-use system. The system is secure, and user accounts are provided by the administrator.
 
----
+
 
 ## Getting Started
 
 ### Login System
 
-- Users need to log in with their **Username** and **Password** provided by the system administrator.
-- Once logged in, the user can access all features based on their role.
+  - Users need to log in with their **Username** and **Password** provided by the system administrator.
+  - Once logged in, the user can access all features based on their role.
 
 ### Dashboard
 
-- The dashboard provides a summary of the business's financial performance, including **daily**, **monthly**, **yearly**, and **total income** statistics.
+  - The dashboard provides a summary of the business's financial performance, including **daily**, **monthly**, **yearly**, and **total income** statistics.
 
----
+
 
 ## Key Features
 
@@ -43,7 +40,7 @@ This POS (Point of Sale) System is designed to streamline operations for shops a
   - Record damaged items in stock.
   - View the history of all damaged items.
 
----
+
 
 ### 2. Product Information Management
 
@@ -72,14 +69,13 @@ This POS (Point of Sale) System is designed to streamline operations for shops a
   - Record payments for services or product orders.
   - View and manage payment history.
 
----
 
 ### 4. Promotions
 
 - **Promotional SMS**:
   - Send promotional SMS messages to customers to increase engagement and sales.
 
----
+
 
 ## Technologies Used
 
@@ -97,7 +93,7 @@ This POS (Point of Sale) System is designed to streamline operations for shops a
   - CSS3
   - Bootstrap
 
----
+
 
 ## How to Run Locally
 
@@ -137,7 +133,7 @@ python manage.py runserver
 
 Open your browser and navigate to `http://127.0.0.1:8000/`.
 
----
+
 
 ## API Endpoints
 
@@ -185,13 +181,12 @@ Open your browser and navigate to `http://127.0.0.1:8000/`.
 - **POST** - Send promotional SMS:  
   `POST /promotional/`
 
----
+
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
----
 
 ## Contact
 
@@ -200,4 +195,3 @@ For any inquiries or access requests, feel free to contact:
 - **Md Rakib Bhuiyan**
 - Email: [rakib2046.md@.com]
 - GitHub: [https://github.com/46ra20](https://github.com/46ra20)
-```
