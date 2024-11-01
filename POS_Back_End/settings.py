@@ -25,13 +25,14 @@ SECRET_KEY = 'django-insecure-od9)hoxzc^6_$u4=_qnairxcz=x2g-+b1rc)-hsb(p!$mt0r=6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pos-backend-1.onrender.com','pos-on-vercel-pn9h.vercel.app','127.0.0.1','.vercel.app']
-# ALLOWED_ORIGINS=['*']
+ALLOWED_HOSTS = ['*','pos-backend-1.onrender.com','pos-on-vercel-pn9h.vercel.app','127.0.0.1','.vercel.app']
+ALLOWED_ORIGINS=['*']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://pos-backend-1.onrender.com',
     'http://127.0.0.1:5500',
-    'https://pos-on-vercel-pn9h.vercel.app'
+    'https://pos-on-vercel-pn9h.vercel.app',
+    'https://46ra20.github.io'
 ]
 
 # Application definition
@@ -72,7 +73,8 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
     'https://pos-backend-1.onrender.com',
-    'https://pos-on-vercel-pn9h.vercel.app'
+    'https://pos-on-vercel-pn9h.vercel.app',
+    'https://46ra20.github.io'
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 
