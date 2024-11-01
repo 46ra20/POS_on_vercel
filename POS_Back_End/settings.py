@@ -29,7 +29,6 @@ ALLOWED_HOSTS = ['*','pos-backend-1.onrender.com','pos-on-vercel-pn9h.vercel.app
 ALLOWED_ORIGINS=['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://pos-backend-1.onrender.com',
     'http://127.0.0.1:5500',
     'https://pos-on-vercel-pn9h.vercel.app',
     'https://46ra20.github.io'
@@ -72,7 +71,6 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5500",
-    'https://pos-backend-1.onrender.com',
     'https://pos-on-vercel-pn9h.vercel.app',
     'https://46ra20.github.io'
 ]
