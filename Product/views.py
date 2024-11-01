@@ -26,9 +26,8 @@ class UnitView(ModelViewSet):
 
 class ProductView(ViewSet):
     def list(self,request,key):
-        if(key!='all' and key!=None):
-            query = ProductModel.objects.filter(product_name__icontains=key)|ProductModel.objects.filter(product_code__contains=key.upper())
-            print(len(query))
+        if(key!='all'):
+            query = ProductModel.objects.filter(product_name__icontains=key,product_code__icontains=key.upper())
         else:
             query= ProductModel.objects.all()
         serializer = ProductSerializer(query,many=True)
