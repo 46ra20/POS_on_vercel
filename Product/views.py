@@ -60,11 +60,13 @@ class ProductView(ViewSet):
         return Response({'message':'Something wrong please try agin,','type':'danger'})
 
 class ProductSearchByName(ViewSet):
-    def list(self,request,key):
+    def list(self,request,key=None):
         print(key)
         if key:
-            query = ProductModel.objects.filter((Q(product_name__icontains=key)|Q(product_code__icontains=key))&Q(quantity__gt=0))
+            query = ProductModel.objects.filter((Q(product_name__icontains=key)|Q(product_code__icontains=key.upper()))&Q(quantity__gt=0))
+            # query = ProductModel.objects.all()
             serializer = ProductSearchByNameSerializer(query,many=True)
+            print(query,serializer.data)
             return Response(serializer.data)
         
 
